@@ -53,11 +53,11 @@ let Terramatador = new Peruamon("Terramatador", "./assets/Terramatador.png", 5)
 peruamones.push(Fuegin, Aquañon, Terramatador)
 
 Fuegin.ataques.push (
-	{nombres:"fuego", id: "boton-fuego"},
-	{nombres:"fuego", id: "boton-fuego"},
-	{nombres:"fuego", id: "boton-fuego"},
-	{nombres:"agua", id: "boton-agua"},
-	{nombres:"tierra", id: "boton-tierra"},
+	{nombres:"🔥", id: "boton-fuego"},
+	{nombres:"🔥", id: "boton-fuego"},
+	{nombres:"🔥", id: "boton-fuego"},
+	{nombres:"💧", id: "boton-agua"},
+	{nombres:"🌱", id: "boton-tierra"},
 )
 Aquañon.ataques.push (
 	{nombres:"💧", id: "boton-agua"},
@@ -114,7 +114,7 @@ function seleccionarMascotaJugador(){
 			spanMascotaJugador.innerHTML = inputAquañon.id
 			mascotaJugador = inputAquañon.id
 		}
-		else if (Terramatador.checked){
+		else if (inputTerramatador.checked){
 			spanMascotaJugador.innerHTML = inputTerramatador.id
 			mascotaJugador = inputTerramatador.id
 		}
@@ -125,6 +125,7 @@ function seleccionarMascotaJugador(){
 	extraerAtaque(mascotaJugador)
     seleccionarMascotaEnemigo()
 }
+
 
 function extraerAtaque(mascotaJugador){
 	let ataques 
@@ -140,7 +141,7 @@ function extraerAtaque(mascotaJugador){
 function mostrarAtaques(ataques){
 	ataques.forEach((ataque) => {
 		ataquesPeruamon =`
-		<button id=${ataque.id} class="boton-de-ataque BATataques">${ataque.nombre}</button>
+		<button id=${ataque.id} class="boton-de-ataque BATataques">${ataque.nombres}</button>
 		`
 		contenedorAtaques.innerHTML += ataquesPeruamon
 	})
@@ -154,12 +155,12 @@ function mostrarAtaques(ataques){
 function secuenciaAtaque(){
 	botones.forEach((boton)=>{boton.addEventListener
 		('click',(e)=>{
-			if(e.target.textContent==='fuego'){
-				ataqueJugador.push('Fuego')
-						console.log(ataqueJugador)
-				boton.style.background='#112f58'
-			}
-			else if(e.target.textContent==='agua'){
+					if(e.target.textContent==='🔥'){
+							ataqueJugador.push('Fuego')
+									console.log(ataqueJugador)
+							boton.style.background='#112f58'
+						}
+			else if(e.target.textContent==='💧'){
 				ataqueJugador.push('Agua')
 					console.log(ataqueJugador)
 				boton.style.background='#112f58'
@@ -281,15 +282,3 @@ function reiniciarJuego(){
 
 		location.reload()
 }
-
-
-
-
-
-
-
-
-
-
-
-
